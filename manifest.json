@@ -1,0 +1,12 @@
+{
+  "name": "Flashcarding",
+  "version": "1.0",
+  "manifest_version": 2,
+  "description": "Lets you create flashcards quickly.",
+  "browser_action": {
+    "default_icon": "heart-16.png"
+  },
+  "permissions": [
+    "http://api.flickr.com/"
+  ]
+}
