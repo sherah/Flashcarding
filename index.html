@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="style.css" type="text/css">
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<link rel="stylesheet" href="styles.css" type="text/css">
+	  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   	<script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.2/underscore-min.js"></script>
   	<script src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.2/backbone-min.js"></script>
   	<script src="src/data.js"></script>
@@ -13,19 +13,23 @@
   	<script src="src/DeckView.js"></script>
   	<script>
     $(function(){
+
       var cards = new Cards();
       cards.reset(data);
+      
+      //TODO: show available decks
+      //var decks = new DeckView({collection: cards});
 
-      var decks = new DeckView({collection: cards});
+      var flashcards = new CardSetView({collection:cards}); 
 
-      $("body").append(
-        decks.render()
-      );
+      $("#cardContainer").append(flashcards.render());
 
     });
   </script>
 </head>
 
 <body>
+  <div id="cardContainer"></div>
+  <div id="deckContainer">stuff</div>
 </body>
 </html>
