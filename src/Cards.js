@@ -11,9 +11,9 @@ var Cards = Backbone.Collection.extend({
 	    // through iterator.
 	    // value extracts the value of the wrapped object
 	    
-	    return this.chain().filter(function(song){
-	      return !!song.attributes.queuedAt;
-	    }).sortBy(function(song){
+	    return this.chain().filter(function(card){
+	      return !!card.attributes.queuedAt;
+	    }).sortBy(function(card){
 	      return song.attributes.queuedAt;
 	    }).value();
   }

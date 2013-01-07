@@ -16,13 +16,15 @@
 
       var cards = new Cards();
       cards.reset(data);
-      
-      //TODO: show available decks
-      //var decks = new DeckView({collection: cards});
+
+      // var decks = new Decks();
+      // decks.reset(data);
 
       var flashcards = new CardSetView({collection:cards}); 
-
       $("#cardContainer").append(flashcards.render());
+
+      // var deckset = new DeckView({collection:decks}); 
+      // $("#cardContainer").append(flashcards.render());
 
     });
   </script>
@@ -30,6 +32,9 @@
 
 <body>
   <div id="cardContainer"></div>
-  <div id="deckContainer">stuff</div>
+  <div id="deckContainer">
+    <p class="titles">Flashcard Decks</p>
+    <div id="theDecks"><ul><li>node</li><li>backbone</li><li>prototypes</li></ul></div>
+  </div>
 </body>
 </html>

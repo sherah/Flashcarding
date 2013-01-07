@@ -3,15 +3,14 @@ var CardView = Backbone.View.extend({
 	tagName: "li",
 
 	events: {
-		//on front:
-		//click 'answer' to see answer (aka flip over)
 
 		//on back:
 		//click 'got it' to add to answered deck
 
 		//everywhere:
 		//click 'pass' to put at end of queue
-		"click .pass": "passCard",
+		"click .cardFront": "flipCard",
+		"click .cardBack": "render",
 
 		//make an "answered" card disappear from the displayed deck
 		"click .answer": "answerCard",
@@ -20,23 +19,23 @@ var CardView = Backbone.View.extend({
 		"edit input": "editCard"
 
 	},
-
-	template: _.template("asdf"),
-	// template: _.template($('.single-card').html()),
+	template: _.template("<span class='cardFront'><%= question %></span><br><span class='answer'>clear</span>"),
+	template2: _.template("<span class='cardBack'><%= answer %></span>"),
 
 	render: function(){
 		return this.$el.html(this.template(this.model.attributes));
 	},
 
-	passCard: function(){
-		//change the card's queued number so it goes to the end of the queue
-
-		//re-render
-		this.render();
+	flipCard: function(){
+		return this.$el.html(this.template2(this.model.attributes));
 	},
 
 	answerCard: function(){
 		//remove the card from the overall view
+		return this.$el.remove();
+	},
+
+	passCard: function(){
 
 	},
 
